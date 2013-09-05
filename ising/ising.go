@@ -30,3 +30,54 @@ func New(imt IsingModelType, width uint32) IsingModel {
 	model.Init(width)
 	return model
 }
+
+func Equilibriate(im IsingModel, steps int) {
+	return
+}
+
+func AverageEnergy(im IsingModel) float64 {
+	energySum := 0.0
+
+	var i uint32
+	for i = 0; i < im.Sites(); i++ {
+		energySum += im.Energy(i)
+	}
+	return energySum / float64(2 * im.Sites())
+}
+
+func AverageMag(im IsingModel) float64 {
+	magSum := 0.0
+
+	var i uint32
+	for i = 0; i < im.Sites(); i++ {
+		magSum += im.Magnetization(i)
+	}
+	return magSum / float64(im.Sites())
+}
+
+func SpecificHeat(im IsingModel) float64 {
+	sqrSum := 0.0
+
+	var i uint32
+	for i = 0; i < im.Sites(); i++ {
+		energy := im.Energy(i)
+		sqrSum += energy * energy
+	}
+
+	avg := AverageEnergy(im)
+	return (sqrSum / 4.0 - avg * avg) / float64(im.Sites())
+}
+
+
+func Chi(im IsingModel) float64 {
+	sqrSum := 0.0
+
+	var i uint32
+	for i = 0; i < im.Sites(); i++ {
+		mag := im.Magnetization(i)
+		sqrSum += mag * mag
+	}
+
+	avg := AverageMag(im)
+	return (sqrSum - avg * avg) / float64(im.Sites())
+}
