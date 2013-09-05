@@ -8,6 +8,10 @@ type Grid2D struct {
 
 func (g *Grid2D) Init(width uint32) {
 	g.cells = make([]bool, width * width)
+	for i := 0; i < len(g.cells); i++ {
+		g.cells[i] = rand.Intn(2) == 1
+	}
+
 	g.width = width
 }
 
