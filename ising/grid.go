@@ -52,7 +52,7 @@ func (g *Grid2D) Energy(site uint32) float64 {
 	md := g.Magnetization(g.down(site))
 	mu := g.Magnetization(g.up(site))
 
-	return mc * (mr + ml + md + mu + g.mag)
+	return -mc * (mr + ml + md + mu + g.mag)
 }
 
 
@@ -61,4 +61,8 @@ func (g *Grid2D) Magnetization(site uint32) float64 {
 		return 1.0
 	}
 	return -1.0
+}
+
+func (g *Grid2D) Print() {
+	panic("Meow")
 }

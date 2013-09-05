@@ -1,8 +1,12 @@
 package ising
 
+import (
+	"math"
+	"math/rand"
+)
+
 type IsingModel interface {
 	Init(width uint32)
-
 	SetMag(mag float64)
 
 	Sites() uint32
@@ -11,6 +15,8 @@ type IsingModel interface {
 
 	Energy(site uint32) float64
 	Magnetization(site uint32) float64
+	
+	Print()
 }
 
 type IsingModelType uint8
@@ -31,8 +37,21 @@ func New(imt IsingModelType, width uint32) IsingModel {
 	return model
 }
 
-func Equilibriate(im IsingModel, steps int) {
-	return
+func Equilibriate(im IsingModel, temp float64, stepsPerCell int) {
+	iters := int(im.Sites()) * stepsPerCell
+
+	for i := 0; i < iters; i++ {
+		site := uint32(rand.Intn(int(im.Sites())))
+
+		oldEnergy := im.Energy(site)
+		im.Flip(site)
+		newEnergy := im.Energy(site)
+		dE := newEnergy - oldEnergy
+
+		if dE > 0 && rand.Float64() > math.Exp(-dE / temp) {
+			im.Flip(site)
+		}
+	}
 }
 
 func AverageEnergy(im IsingModel) float64 {
