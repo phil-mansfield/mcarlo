@@ -1,5 +1,9 @@
 package ising
 
+import (
+	"math/rand"
+)
+
 type Grid2D struct {
 	cells []bool
 	mag float64
