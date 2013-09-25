@@ -1,0 +1,6 @@
+PASS
+BenchmarkGoRandGenerator	   50000	     68879 ns/op
+BenchmarkGoCryptoGenerator	    2000	   1213178 ns/op
+BenchmarkXorshiftGenerator	   50000	     56798 ns/op
+BenchmarkMultiplyWithCarryGenerator	   50000	     65274 ns/op
+ok  	github.com/phil-mansfield/mcarlo/ising	14.186s

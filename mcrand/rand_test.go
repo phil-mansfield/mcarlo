@@ -6,7 +6,10 @@ import (
 
 func BenchmarkBlumBlumArray(b *testing.B) {
 	rand := New(BlumBlum, 0)
+
+	b.ReportAllocs()
 	b.ResetTimer()
+
 	xs := rand.NextN(b.N)
 
 	sum := 0.0
@@ -17,6 +20,8 @@ func BenchmarkBlumBlumArray(b *testing.B) {
 
 func BenchmarkBlumBlumNext(b *testing.B) {
 	rand := New(BlumBlum, 0)
+
+	b.ReportAllocs()
 	b.ResetTimer()
 
 	sum := 0.0
@@ -27,7 +32,10 @@ func BenchmarkBlumBlumNext(b *testing.B) {
 
 func BenchmarkGoRandArray(b *testing.B) {
 	rand := New(GoRand, 0)
+
+	b.ReportAllocs()
 	b.ResetTimer()
+
 	xs := rand.NextN(b.N)
 
 	sum := 0.0
@@ -38,6 +46,8 @@ func BenchmarkGoRandArray(b *testing.B) {
 
 func BenchmarkGoRandNext(b *testing.B) {
 	rand := New(GoRand, 0)
+
+	b.ReportAllocs()
 	b.ResetTimer()
 
 	sum := 0.0
@@ -48,7 +58,10 @@ func BenchmarkGoRandNext(b *testing.B) {
 
 func BenchmarkGoCryptoArray(b *testing.B) {
 	rand := New(GoCrypto, 0)
+
+	b.ReportAllocs()
 	b.ResetTimer()
+
 	xs := rand.NextN(b.N)
 
 	sum := 0.0
@@ -59,6 +72,8 @@ func BenchmarkGoCryptoArray(b *testing.B) {
 
 func BenchmarkGoCryptoNext(b *testing.B) {
 	rand := New(GoCrypto, 0)
+
+	b.ReportAllocs()
 	b.ResetTimer()
 
 	sum := 0.0
@@ -69,7 +84,10 @@ func BenchmarkGoCryptoNext(b *testing.B) {
 
 func BenchmarkXorshiftArray(b *testing.B) {
 	rand := New(Xorshift, 0)
+
+	b.ReportAllocs()
 	b.ResetTimer()
+
 	xs := rand.NextN(b.N)
 
 	sum := 0.0
@@ -80,6 +98,8 @@ func BenchmarkXorshiftArray(b *testing.B) {
 
 func BenchmarkXorshiftNext(b *testing.B) {
 	rand := New(Xorshift, 0)
+
+	b.ReportAllocs()
 	b.ResetTimer()
 
 	sum := 0.0
@@ -90,7 +110,10 @@ func BenchmarkXorshiftNext(b *testing.B) {
 
 func BenchmarkMultiplyWithCarryArray(b *testing.B) {
 	rand := New(MultiplyWithCarry, 0)
+
+	b.ReportAllocs()
 	b.ResetTimer()
+
 	xs := rand.NextN(b.N)
 
 	sum := 0.0
@@ -101,6 +124,8 @@ func BenchmarkMultiplyWithCarryArray(b *testing.B) {
 
 func BenchmarkMultiplyWithCarryNext(b *testing.B) {
 	rand := New(MultiplyWithCarry, 0)
+
+	b.ReportAllocs()
 	b.ResetTimer()
 
 	sum := 0.0

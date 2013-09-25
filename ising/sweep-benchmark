@@ -1,0 +1,17 @@
+PASS
+BenchmarkRandomSweep4	 1000000	      1754 ns/op
+BenchmarkRandomSweep8	  500000	      7771 ns/op
+BenchmarkRandomSweep16	   50000	     34146 ns/op
+BenchmarkRandomSweep32	   10000	    122269 ns/op
+BenchmarkRandomSweep64	    5000	    549068 ns/op
+BenchmarkIterateSweep4	 5000000	       664 ns/op
+BenchmarkIterateSweep8	 1000000	      1947 ns/op
+BenchmarkIterateSweep16	  500000	      6593 ns/op
+BenchmarkIterateSweep32	  100000	     21065 ns/op
+BenchmarkIterateSweep64	   20000	     78562 ns/op
+BenchmarkCheckerSweep4	 5000000	       706 ns/op
+BenchmarkCheckerSweep8	 1000000	      2030 ns/op
+BenchmarkCheckerSweep16	  100000	     18066 ns/op
+BenchmarkCheckerSweep32	   50000	     70361 ns/op
+BenchmarkCheckerSweep64	   10000	    266678 ns/op
+ok  	github.com/phil-mansfield/mcarlo/ising	41.124s
