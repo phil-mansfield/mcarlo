@@ -5,8 +5,8 @@ import time
 
 
 t0 = time.time()
-
-for i in range(1000 * 1000): random.random()
+sum = 0
+for i in range(1000 * 1000): sum += random.random()
 
 t1 = time.time()
 
