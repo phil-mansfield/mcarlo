@@ -20,6 +20,7 @@ const (
 	GoRand
 	MultiplyWithCarry
 	Tausworthe
+	GslRand
 )
 
 func NewTimeSeed(gt GeneratorType) *Generator {
@@ -38,6 +39,8 @@ func New(gt GeneratorType, seed uint64) *Generator {
 		backend = new(multiplyWithCarryGenerator)
 	case Tausworthe:
 		backend = new(tauswortheGenerator)
+	case GslRand:
+		backend = new(gslRandGenerator)
 	default:
 		panic("Unrecognized GeneratorType")
 	}
